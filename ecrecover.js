@@ -1,6 +1,6 @@
 const ethUtil = require("ethereumjs-util");
 
-function ecRecover(message, signature) {
+window.ecRecover = function (message, signature) {
   const res = ethUtil.fromRpcSig("0x" + signature);
 
   const msg = ethUtil.keccak256(new Buffer.from(message));
@@ -16,4 +16,4 @@ function ecRecover(message, signature) {
   const addr = ethUtil.bufferToHex(addrBuf);
 
   return addr;
-}
+};
